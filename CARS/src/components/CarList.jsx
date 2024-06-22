@@ -14,7 +14,7 @@ const CarList = () => {
   };
 
   const renderedCars = cars.map((car) => {
-    return (
+    return car.length ? (
       <div key={car.id} className="panel">
         <p>
           {car.name} - ₹{car.cost}
@@ -27,7 +27,7 @@ const CarList = () => {
           Delete
         </button>
       </div>
-    );
+    ) : null;
   });
   return (
     <div className="car-list">

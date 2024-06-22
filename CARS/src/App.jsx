@@ -1,10 +1,12 @@
 import { CarForm, CarList, CarSearch, CarValue } from "./components";
+import "bulma/css/bulma.css";
+import "./style.css";
 function App() {
   return (
     <div className="text-2xl">
       <CarForm />
-      <CarList />
       <CarSearch />
+      <CarList />
       <CarValue />
     </div>
   );
