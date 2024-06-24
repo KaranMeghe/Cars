@@ -1,4 +1,4 @@
-import { changeName, changeCost, addCars, resetForm } from "../Redux/store";
+import { changeName, changeCost, addCars } from "../Redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
@@ -31,7 +31,6 @@ const CarForm = () => {
     if (!name || !cost) {
       return setWarningMessage("Please Provide both name and cost");
     }
-    dispatch(resetForm());
   };
 
   return (
