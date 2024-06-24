@@ -9,7 +9,7 @@ const carsSlice = createSlice({
 
   reducers: {
     changeSearchTerm(state, action) {
-      state.cars = action.payload;
+      state.searchTerm = action.payload;
     },
 
     addCars(state, action) {
