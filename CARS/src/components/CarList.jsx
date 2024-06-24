@@ -3,6 +3,7 @@ import { removeCars } from "../Redux/store";
 
 const CarList = () => {
   const dispatch = useDispatch();
+
   const cars = useSelector((state) => {
     return state.cars.data;
   });
@@ -14,7 +15,7 @@ const CarList = () => {
   };
 
   const renderedCars = cars.map((car) => {
-    return car.length ? (
+    return cars.length ? (
       <div key={car.id} className="panel">
         <p>
           {car.name} - ₹{car.cost}

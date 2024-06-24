@@ -1,13 +1,18 @@
 import { changeName, changeCost, addCars, resetForm } from "../Redux/store";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+
 const CarForm = () => {
   const dispatch = useDispatch();
+  const [warningMessage, setWarningMessage] = useState("");
 
   const handleNameChange = (event) => {
-    return dispatch(changeName(event.target.value));
+    setWarningMessage(""); // Clear the warning message on input change
+    dispatch(changeName(event.target.value));
   };
 
   const handleCostChange = (event) => {
+    setWarningMessage(""); // Clear the warning message on input change)
     const carCost = parseInt(event.target.value) || 0;
     return dispatch(changeCost(carCost));
   };
@@ -21,7 +26,11 @@ const CarForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent the form from submitting
-    dispatch(addCars({ name, cost }));
+    name.length && cost ? dispatch(addCars({ name, cost })) : null;
+
+    if (!name || !cost) {
+      return setWarningMessage("Please Provide both name and cost");
+    }
     dispatch(resetForm());
   };
 
@@ -58,6 +67,7 @@ const CarForm = () => {
           <button className="button is-link">Submit</button>
         </div>
       </form>
+      {warningMessage && <p className="has-text-danger">{warningMessage}</p>}
     </div>
   );
 };
