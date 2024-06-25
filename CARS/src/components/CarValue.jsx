@@ -12,7 +12,7 @@ const CarValue = () => {
     }, 0);
   });
 
-  return <div className="car-value">Total Cost: {totalCost}</div>;
+  return <div className="car-value">Total Cost: ₹{totalCost}</div>;
 };
 
 export default CarValue;
